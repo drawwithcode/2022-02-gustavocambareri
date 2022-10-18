@@ -7,7 +7,7 @@ let isClicked = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(60);
+  frameRate(10);
   //loop for creating bubble array, so I don't have to create 50 stamps of bubbles
   for (let i = 0; i < 50; i++) {
     Bubbles.push(new Bubble(width / 2, height / 2, 70));
@@ -31,11 +31,12 @@ class Bubble {
     this.x = xpos;
     this.y = ypos;
     this.r = radius;
+    this.color;
   }
   //randomizes x and y of bubbles
   move() {
-    this.x += random(-300, 300);
-    this.y += random(-300, 300);
+    this.x += random(-30, 30);
+    this.y += random(-30, 30);
   }
   //randomizes the fill
   randomize() {
@@ -54,6 +55,15 @@ class Bubble {
     translate(this.x, this.y);
     circle(0, 0, this.r);
     pop();
+  }
+  //randomizes the fill
+  lerp() {
+    let d = 0;
+    let e = 255;
+    let morph = sin(angle);
+    let lerpataBubble = lerpColor(e, d, morph);
+    this.color = lerpataBubble;
+    fill(this.color);
   }
 }
 //color fades from white to black when window is resized
