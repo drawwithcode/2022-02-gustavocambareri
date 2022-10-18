@@ -7,10 +7,10 @@ let isClicked = false;
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
-  frameRate(10);
+  frameRate(60);
   //loop for creating bubble array, so I don't have to create 50 stamps of bubbles
   for (let i = 0; i < 50; i++) {
-    Bubbles.push(new Bubble(width / 2, height / 2, 100));
+    Bubbles.push(new Bubble(width / 2, height / 2, 70));
   }
 }
 
@@ -34,8 +34,8 @@ class Bubble {
   }
   //randomizes x and y of bubbles
   move() {
-    this.x += random(-30, 30);
-    this.y += random(-30, 30);
+    this.x += random(-300, 300);
+    this.y += random(-300, 300);
   }
   //randomizes the fill
   randomize() {
